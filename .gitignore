@@ -1,7 +1,7 @@
 #directories
-AliceAdventure/bower_components
-AliceAdventure/node_modules
-AliceAdventure/dist
+**/bower_components/
+**/node_modules/
+**/dist/
 
 #files
 *.tgz
