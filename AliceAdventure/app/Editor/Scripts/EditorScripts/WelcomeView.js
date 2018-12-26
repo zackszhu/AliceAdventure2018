@@ -15,7 +15,6 @@ class WelcomeView extends View {
   }
 
   InitView() {
-    super.InitView();
     this.vModel = new Vue({
       el: `#${this.bindElementID}`,
       data: {
@@ -39,10 +38,6 @@ class WelcomeView extends View {
         exit: () => { IPC.send('exit'); },
       },
     });
-  }
-
-  ReloadView() {
-    super.ReloadView();
   }
 }
 module.exports = WelcomeView;

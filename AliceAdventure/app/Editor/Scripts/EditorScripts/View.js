@@ -122,16 +122,6 @@ class View {
       }
     };
   }
-
-  ReloadView() {
-    // TODO
-    return;
-  }
-
-  InitView() {
-    // TODO
-    return;
-  }
 }
 
 View.DragInfo = {
