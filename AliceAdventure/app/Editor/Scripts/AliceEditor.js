@@ -1,38 +1,101 @@
-'use strict';
+// TODO: Remove dynamic import
+class AliceEditor {
+  static GetModule(name) {
+    return require(`./EditorScripts/${name}`);
+  }
 
-var AliceEditor;
+  static get Utilities() {
+    return AliceEditor.Getmodule('Utilities/Utilities');
+  }
 
-AliceEditor = (function(){
-	var getModule = function(name) {return require('./EditorScripts/' + name);}
-	var utilities = getModule('Utilities/Utilities');
-	return {
-		get Debug() {return utilities.Debug;}, 
-		get Event() {return utilities.Event;},
+  static get Debug() {
+    return AliceEditor.Utilities.Debug;
+  }
 
-		get GameProperties() {return getModule('GameProperties');}, 
-		get Scene() {return getModule('Scene');},
-		get SceneObject() {return getModule('SceneObject');},
-		get State() {return getModule('State');},
-		get IEvent() {return getModule('IEvent');},
-		get IReaction() {return getModule('IReaction');},
-		get Interaction() {return getModule('Interaction');},
-		get Sound() {return getModule('Sound');},
+  static get Event() {
+    return AliceEditor.Utilities.Event;
+  }
 
-		get File() {return getModule('File');}, 
-		//get Menu() {return getModule('Menu');},
-		
-		get View() {return getModule('View');},
-		get WelcomeView() {return getModule('WelcomeView');},
-		get TutorialView() {return getModule('TutorialView');},
-		get RunView() {return getModule('RunView');},
-		get GalleryView() {return getModule('GalleryView');}, 
-		get SceneView (){return getModule('SceneView');},
-		get PropertyView() {return getModule('PropertyView');},
-		get ObjectListView() {return getModule('ObjectListView');},
-		get ILibraryView() {return getModule('ILibraryView');},
-		get InteractionView() {return getModule('InteractionView');}, 
-		get GameSettingView() {return getModule('GameSettingView');},
-	};
-})();
+  static get GameProperties() {
+    return AliceEditor.GetModule('GameProperties');
+  }
+
+  static get Scene() {
+    return AliceEditor.GetModule('Scene');
+  }
+
+  static get SceneObject() {
+    return AliceEditor.Getmodule('SceneObject');
+  }
+
+  static get State() {
+    return AliceEditor.GetModule('State');
+  }
+
+  static get IEvent() {
+    return AliceEditor.GetModule('IEvent');
+  }
+
+  static get IReaction() {
+    return AliceEditor.GetModule('IReaction');
+  }
+
+  static get Interaction() {
+    return AliceEditor.GetModule('Interaction');
+  }
+
+  static get Sound() {
+    return AliceEditor.GetModule('Sound');
+  }
+
+  static get File() {
+    return AliceEditor.GetModule('File');
+  }
+  // static get Menu() {return AliceEditor.GetModule('Menu');}
+
+  static get View() {
+    return AliceEditor.GetModule('View');
+  }
+
+  static get WelcomeView() {
+    return AliceEditor.GetModule('WelcomeView');
+  }
+
+  static get TutorialView() {
+    return AliceEditor.GetModule('TutorialView');
+  }
+
+  static get RunView() {
+    return AliceEditor.GetModule('RunView');
+  }
+
+  static get GalleryView() {
+    return AliceEditor.GetModule('GalleryView');
+  }
+
+  static get SceneView() {
+    return AliceEditor.GetModule('SceneView');
+  }
+
+  static get PropertyView() {
+    return AliceEditor.GetModule('PropertyView');
+  }
+
+  static get ObjectListView() {
+    return AliceEditor.GetModule('ObjectListView');
+  }
+
+  static get ILibraryView() {
+    return AliceEditor.GetModule('ILibraryView');
+  }
+
+  static get InteractionView() {
+    return AliceEditor.GetModule('InteractionView');
+  }
+
+  static get GameSettingView() {
+    return AliceEditor.GetModule('GameSettingView');
+  }
+}
 
 module.exports = AliceEditor;
