@@ -27,9 +27,8 @@
   <script type="text/javascript" src="../Scripts/index.js"></script>
   <script type="text/javascript" src="js/tutorial.js"> </script>
   <script type="text/javascript" src="js/switch.js"> </script>
-  <script src="js/hierarchy.js"></script>
-  <script src="js/interact.js"></script>
-  <script src="js/drag.js"></script>
+  <script type="text/javascript" src="js/hierarchy.js"></script>
+  <script type="text/javascript" src="js/drag.js"></script>
   <link rel="stylesheet" href="css/tutorial.css">
 </head>
 <script type="text/javascript">
@@ -44,9 +43,7 @@
     textBox.style['width'] = '100px';
     textBox.value = targetTitle.innerHTML;
 
-
     textBox.onblur = function () {
-
       var newValue = textBox.value; //targetTitle.value
       console.log("on blur");
       console.log(newValue);
