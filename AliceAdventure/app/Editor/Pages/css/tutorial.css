@@ -1,0 +1,104 @@
+.sys-button {
+  padding: 1%;
+  display: block;
+  float: right;
+  margin-right: 5%;
+  margin-top: 1%;
+  color: #fff;
+  font-weight: 480;
+  font-size: 1.5em;
+}
+
+.sys-button:focus {
+  outline: none;
+}
+
+.sys-button:hover {
+  opacity: 0.5;
+}
+
+body {
+  background-color: #27a745;
+}
+
+#step_1 {
+  display: block;
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+#step_1 .window-title-css {
+  display: inline-block;
+  color: #ffc107;
+  font-size: 1.5em !important;
+}
+
+#step_1 h6+img {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin-left: 1%;
+  display: inline-block;
+}
+
+#gallery {
+  float: left;
+  position: relative !important;
+  display: inline-block !important;
+  height: 430px !important;
+}
+
+#step_2 {
+  display: none;
+  margin-top: 1%;
+  margin-left: 2%;
+}
+
+#step_2 .window-title {
+  display: inline-block;
+  color: #ffc107;
+  font-size: 1.2em !important;
+}
+
+#step_2 #design-editor {
+  float: left;
+  margin: 10px;
+  position: relative !important;
+  display: inline-block !important;
+  height: 480px;
+  width: 480px !important;
+}
+
+#step_2 #object-list {
+  float: left;
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  position: relative !important;
+  display: inline-block !important;
+  height: 480px !important;
+  width: 35% !important;
+  left: 0 !important;
+}
+
+#step_3 {
+  display: none;margin-top:1%;
+  margin-left:2%;
+}
+
+#step_3 .window-title {
+  display: inline-block; color:#ffc107; font-size: 1.2em !important;
+}
+
+#step_3 #interaction-editor {
+  top:0; float:left; display: inline-block !important; position: relative !important; width:65%; height: 500px; margin:10px;
+}
+
+#step_3 #interaction-library {
+  float:left; display: inline-block !important; position: relative !important; width:25%; height: 500px; margin:10px;
+}
+
+#step_4 {
+  display: none;
+}
