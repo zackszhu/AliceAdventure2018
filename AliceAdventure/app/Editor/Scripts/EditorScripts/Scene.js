@@ -8,8 +8,7 @@ const GameProperties = require('./GameProperties');
 
 class Scene {
   constructor(id, name = 'untitledScene') {
-    if (id === null) this.id = ID.NewID;
-    else this.id = id;
+    this.id = id === null ? ID.NewID : id;
     this.name = name;
 
     this.container = null;

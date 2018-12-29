@@ -1,48 +1,42 @@
-'use strict';
-
-const {ID} = require('./Utilities/Utilities');
+const {
+  ID,
+} = require('./Utilities/Utilities');
 const GameProperties = require('./GameProperties');
 
-// class
-var State;
+class State {
+  constructor(id, name, val = false) {
+    this.id = id === null ? ID.NewID : id;
+    this.name = name;
+    this.value = val;
 
-// variables
-State = function(_id, _name, _val = false){
-	if (_id == null) _id = ID.newID; // NEVER MODIFY THIS
-	this.id = _id;
-	this.name = _name;
-	this.value = _val;
+    // GameProperties.AddState(this);
+  }
 
-	//GameProperties.AddState(this);
-};
+  static NewState(name, val) {
+    return new State(null, name, val);
+  }
 
-// static
-State.NewState = function(_name, _val = false){
-	let state = new State(null, _name, _val);
-	return state;
-};
-
-State.LoadState = function(_data){
-	let state = new State(_data.id, _data.name, _data.value);
+  static LoadState(data) {
+    const state = new State(data.id, data.name, data.value);
     GameProperties.AddState(state);
     return state;
-};
+  }
 
-// functions
-State.prototype.SetDefaultValue = function(_val){
-	this.value = Boolean(_val);
-};
+  SetDefaultValue(val) {
+    this.value = Boolean(val);
+  }
 
-State.prototype.DeleteThis = function(){
-	GameProperties.DeleteState(this);
-};
+  DeleteThis() {
+    GameProperties.DeleteState(this);
+  }
 
-State.prototype.toJsonObject = function() {
-    var obj = {};
-    obj.id = this.id;
-    obj.name = this.name;
-    obj.value = this.value;
-    return obj;
-};
+  toJsonObject() {
+    return {
+      id: this.id,
+      name: this.name,
+      value: this.value,
+    };
+  }
+}
 
 module.exports = State;
