@@ -1,11 +1,14 @@
-'use strict';
+let counter = 0;
 
-var ID; 
+class ID {
+  static get NewID() {
+    counter += 1;
+    return counter;
+  }
 
-ID = {
-	_counter: 1, // DO NOT MODIFY DIRECTLY
-	get newID(){ return this._counter++; }, 
-	setCounter: function(n){this._counter = n;}
-};
+  static set Counter(newCounter) {
+    counter = newCounter;
+  }
+}
 
 module.exports = ID;

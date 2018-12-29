@@ -3,7 +3,8 @@
     "rules": {
       "no-unused-vars":"warn",
       "linebreak-style":"off",
-      "no-alert":"warn"
+      "no-alert":"warn",
+      "global-require":"warn"
     },
     "env": {
       "browser": true,

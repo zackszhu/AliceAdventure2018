@@ -1,27 +1,16 @@
-'use strict';
+class Debug {
+  static Log(content) {
+    window.console.log(`Log: ${content}`);
+  }
 
-// class
-var Debug;
+  static LogError(content) {
+    window.console.log(`Error: ${content}`);
+    window.alert(content);
+  }
 
-// variables
-Debug = function(){};
-
-// functions
-Debug.Log = function(something){
-	console.log("LOG: " + something);
-	alert(something);
-	// TODO: Reserved for later output functionality
-}
-
-Debug.LogError = function(something){
-	console.log("ERROR: " + something);
-	alert(something);
-	// TODO: Reserved for later output functionality
-}
-
-Debug.LogWarning = function(something){
-	console.log("WARNING: " + something);
-	// TODO: Reserved for later output functionality
+  static LogWarning(content) {
+    window.console.log(`Warning: ${content}`);
+  }
 }
 
 module.exports = Debug;
