@@ -15,6 +15,7 @@ class WelcomeView extends View {
   }
 
   InitView() {
+    // eslint-disable-next-line no-undef
     this.vModel = new Vue({
       el: `#${this.bindElementID}`,
       data: {
