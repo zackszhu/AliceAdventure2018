@@ -9,6 +9,10 @@ class ID {
   static set Counter(newCounter) {
     counter = newCounter;
   }
+
+  static get Counter() {
+    return counter;
+  }
 }
 
 module.exports = ID;

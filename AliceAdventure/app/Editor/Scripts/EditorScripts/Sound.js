@@ -1,39 +1,34 @@
-'use strict';
-
-const {ID} = require('./Utilities/Utilities');
+const {
+  ID,
+} = require('./Utilities/Utilities');
 const GameProperties = require('./GameProperties');
 
-// class
-var Sound;
+class Sound {
+  constructor(id, name, src) {
+    this.id = id === null ? ID.NewID : id;
+    this.name = name;
+    this.src = src;
+  }
 
-// variables
-Sound = function(_id, _name, _src){
-	if (_id == null) _id = ID.newID; // NEVER MODIFY THIS
-	this.id = _id;
-	this.name = _name;
-	this.src = _src;
-};
+  static NewSound(name = 'NewSound', src = '') {
+    const sound = new Sound(null, name, src);
+    GameProperties.AddSound(sound);
+    return sound;
+  }
 
-// static
-Sound.NewSound = function(_name = "NewSound", _src = ""){
-	let sound = new Sound(null, _name, _src);
-	GameProperties.AddSound(sound);
-	return sound;
-};
+  static LoadSound(data) {
+    const sound = new Sound(data.id, data.name, data.src);
+    GameProperties.AddSound(sound);
+    return sound;
+  }
 
-Sound.LoadSound = function(_data){
-	let sound = new Sound(_data.id, _data.name, _data.src);
-	GameProperties.AddSound(sound);
-	return sound;
-};
-
-// function
-Sound.prototype.toJsonObject = function(){
-	return {
-		id: this.id,
-		name: this.name,
-		src: this.src
-	};
-};
+  toJsonObject() {
+    return {
+      id: this.id,
+      name: this.name,
+      src: this.src,
+    };
+  }
+}
 
 module.exports = Sound;

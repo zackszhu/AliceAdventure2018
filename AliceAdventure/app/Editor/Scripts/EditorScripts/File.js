@@ -342,7 +342,7 @@ class File {
     File.tempJsonObj.settings = GameProperties.instance.settings;
 
     // projData
-    File.tempJsonObj.projectData.idCounter = ID._counter;
+    File.tempJsonObj.projectData.idCounter = ID.Counter;
     File.tempJsonObj.projectData.viewWidth = GameProperties.instance.projectData.viewWidth;
     File.tempJsonObj.projectData.viewHeight = GameProperties.instance.projectData.viewHeight;
 
