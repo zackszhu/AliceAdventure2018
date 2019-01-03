@@ -38,10 +38,10 @@ class GalleryView extends View {
       },
       methods: {
         imageDragstart: (ev, d) => {
-          View.HandleDragstart(ev, View.DragInfo.GalleryImage, d);
+          super.HandleDragstart(ev, View.DragInfo.GalleryImage, d);
         },
         soundDragstart: (ev, d) => {
-          View.HandleDragstart(ev, View.DragInfo.GallerySound, d);
+          super.HandleDragstart(ev, View.DragInfo.GallerySound, d);
         },
         chooseObj: (_obj) => {
           this.ChooseObj(_obj);

@@ -32,10 +32,10 @@ class SceneView extends View {
           this.AddScene();
         },
         assetDragover: (ev) => {
-          View.HandleDragover(ev, View.DragInfo.GalleryImage);
+          super.HandleDragover(ev, View.DragInfo.GalleryImage);
         },
         assetDrop: (ev) => {
-          View.HandleDrop(ev, View.DragInfo.GalleryImage, (data) => {
+          super.HandleDrop(ev, View.DragInfo.GalleryImage, (data) => {
             this.AddObject(data);
           });
         },

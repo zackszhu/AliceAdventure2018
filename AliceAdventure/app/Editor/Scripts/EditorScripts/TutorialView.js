@@ -84,7 +84,7 @@ class TutorialView extends View {
       this.ReloadView();
     });
     Event.AddListener('delete-scene', (id) => {
-      this.HandleDeleteScene(id);
+      TutorialView.HandleDeleteScene(id);
     });
   }
 

@@ -5,7 +5,8 @@
       "linebreak-style":"off",
       "no-alert":"warn",
       "global-require":"warn",
-      "no-restricted-globals": "warn"
+      "no-restricted-globals": "warn",
+      "max-len": "warn"
     },
     "env": {
       "browser": true,

@@ -27,26 +27,26 @@ class ObjectListView extends View {
       },
       methods: {
         objectDragStart: (ev, d) => {
-          View.HandleDragstart(ev, View.DragInfo.ListedObject, d);
+          super.HandleDragstart(ev, View.DragInfo.ListedObject, d);
         },
         objectDragover: (ev) => {
-          View.HandleDragover(ev, View.DragInfo.ListedObject, () => {});
+          super.HandleDragover(ev, View.DragInfo.ListedObject, () => {});
         },
         objectDrop: (ev, scene, object) => {
-          View.HandleDrop(ev, View.DragInfo.ListedObject, (dragObj) => {
+          super.HandleDrop(ev, View.DragInfo.ListedObject, (dragObj) => {
             dragObj.SwitchScene(scene, object);
             View.Selection.selectObject(dragObj);
           });
         },
 
         sceneDragStart: (ev, d) => {
-          View.HandleDragstart(ev, View.DragInfo.ListedScene, d);
+          super.HandleDragstart(ev, View.DragInfo.ListedScene, d);
         },
         sceneDragover: (ev) => {
-          View.HandleDragover(ev, View.DragInfo.ListedScene, () => {});
+          super.HandleDragover(ev, View.DragInfo.ListedScene, () => {});
         },
         sceneDrop: (ev, aboveScene) => {
-          View.HandleDrop(ev, View.DragInfo.ListedScene, (dragScene) => {
+          super.HandleDrop(ev, View.DragInfo.ListedScene, (dragScene) => {
             if (aboveScene) {
               window.console.log('has above');
               GameProperties.moveSceneAfterScene(dragScene, aboveScene);
