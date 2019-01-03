@@ -4,10 +4,14 @@
       "no-unused-vars":"warn",
       "linebreak-style":"off",
       "no-alert":"warn",
-      "global-require":"warn"
+      "global-require":"warn",
+      "no-restricted-globals": "warn"
     },
     "env": {
       "browser": true,
       "node": true
+    },
+    "globals": {
+      "Vue": true
     }
 }
