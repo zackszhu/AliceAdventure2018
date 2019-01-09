@@ -112,7 +112,7 @@ class InteractionView extends View {
   }
 
   ReloadView() {
-    if (GameProperties.ProjectLoaded()) {
+    if (GameProperties.ProjectedLoaded) {
       this.vModel.viewEnabled = true;
       this.vModel.interactions = GameProperties.instance.interactionList;
       this.vModel.objects = GameProperties.instance.objectList;

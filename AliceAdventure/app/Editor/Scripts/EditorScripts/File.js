@@ -13,6 +13,32 @@ const Image = require('./Image');
 
 let instance = null;
 
+class TempJsonObj {
+  constructor() {
+    this.sceneList = [];
+    this.objectList = [];
+    this.interactionList = [];
+    this.stateList = [];
+    this.soundList = [];
+    this.imageList = [];
+    this.settings = {};
+    this.projectData = {};
+  }
+
+  reset() {
+    this.sceneList = [];
+    this.objectList = [];
+    this.interactionList = [];
+    this.stateList = [];
+    this.soundList = [];
+    this.imageList = [];
+    this.settings = {};
+    this.projectData = {};
+  }
+}
+
+const tempJsonObj = new TempJsonObj();
+
 class File {
   constructor(_path, _gameProperties) {
     this.path = _path;
@@ -32,18 +58,7 @@ class File {
   }
 
   static get tempJsonObj() {
-    return class tempJsonObj {
-      constructor() {
-        this.sceneList = [];
-        this.objectList = [];
-        this.interactionList = [];
-        this.stateList = [];
-        this.soundList = [];
-        this.imageList = [];
-        this.settings = {};
-        this.projectData = {};
-      }
-    };
+    return tempJsonObj;
   }
 
   static NewEmptyProject(callback) {

@@ -107,7 +107,7 @@ class ObjectListView extends View {
   }
 
   static DeleteSelected() {
-    if (!GameProperties.ProjectLoaded()) return;
+    if (!GameProperties.ProjectedLoaded) return;
     if (View.Selection.object != null) {
       ObjectListView.DeleteObject(View.Selection.object);
     } else if (View.Selection.scene != null) {

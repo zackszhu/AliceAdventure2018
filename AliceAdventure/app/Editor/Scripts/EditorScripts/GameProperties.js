@@ -168,51 +168,51 @@ class GameProperties {
   }
 
   static AddScene(scene) {
-    return GameProperties.AddElemToArray(GameProperties.instance.sceneList, scene);
+    return GameProperties.AddElemToArray(scene, GameProperties.instance.sceneList);
   }
 
   static DeleteScene(scene) {
-    return GameProperties.DeleteElemFromArray(GameProperties.instance.sceneList, scene);
+    return GameProperties.DeleteElemFromArray(scene, GameProperties.instance.sceneList);
   }
 
   static AddObject(obj) {
-    return GameProperties.AddElemToArray(GameProperties.instance.objectList, obj);
+    return GameProperties.AddElemToArray(obj, GameProperties.instance.objectList);
   }
 
   static DeleteObject(obj) {
-    return GameProperties.DeleteElemFromArray(GameProperties.instance.objectList, obj);
+    return GameProperties.DeleteElemFromArray(obj, GameProperties.instance.objectList);
   }
 
   static AddInteraction(interaction) {
-    return GameProperties.AddElemToArray(GameProperties.instance.interactionList, interaction);
+    return GameProperties.AddElemToArray(interaction, GameProperties.instance.interactionList);
   }
 
   static DeleteInteraction(interaction) {
-    return GameProperties.DeleteElemFromArray(GameProperties.instance.interactionList, interaction);
+    return GameProperties.DeleteElemFromArray(interaction, GameProperties.instance.interactionList);
   }
 
   static AddState(state) {
-    return GameProperties.AddElemToArray(GameProperties.instance.stateList, state);
+    return GameProperties.AddElemToArray(state, GameProperties.instance.stateList);
   }
 
   static DeleteState(state) {
-    return GameProperties.DeleteElemFromArray(GameProperties.instance.stateList, state);
+    return GameProperties.DeleteElemFromArray(state, GameProperties.instance.stateList);
   }
 
   static AddSound(sound) {
-    return GameProperties.AddElemToArray(GameProperties.instance.soundList, sound);
+    return GameProperties.AddElemToArray(sound, GameProperties.instance.soundList);
   }
 
   static DeleteSound(sound) {
-    return GameProperties.DeleteElemFromArray(GameProperties.instance.soundList, sound);
+    return GameProperties.DeleteElemFromArray(sound, GameProperties.instance.soundList);
   }
 
   static AddImage(image) {
-    return GameProperties.AddElemToArray(GameProperties.instance.imageList, image);
+    return GameProperties.AddElemToArray(image, GameProperties.instance.imageList);
   }
 
   static DeleteImage(image) {
-    return GameProperties.DeleteElemFromArray(GameProperties.instance.imageList, image);
+    return GameProperties.DeleteElemFromArray(image, GameProperties.instance.imageList);
   }
 }
 

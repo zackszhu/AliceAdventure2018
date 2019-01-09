@@ -1,5 +1,84 @@
 const { Event } = require('./Utilities/Utilities');
 
+class Selection {
+  constructor() {
+    this.obj = null;
+    this.scn = null;
+    this.objOff = () => {
+      if (this.obj != null) {
+        this.obj.SelectOff();
+        this.obj = null;
+      }
+    };
+    this.scnOff = () => {
+      if (this.scn != null) {
+        this.scn.SelectOff();
+        this.scn = null;
+      }
+    };
+    this.objOn = (obj) => {
+      this.objOff();
+      if (obj != null) {
+        this.obj = obj;
+        obj.SelectOn();
+      }
+    };
+    this.scnOn = (scn) => {
+      this.scnOff();
+      if (scn != null) {
+        this.scn = scn;
+        scn.SelectOn();
+      }
+    };
+    Event.AddListener('delete-scene', (_id) => {
+      if (this.scn && this.scn.id === _id) {
+        this.objOff();
+        this.scnOff();
+        Event.Broadcast('update-selection');
+      }
+    });
+    Event.AddListener('delete-object', (_id) => {
+      if (this.obj && this.obj.id === _id) {
+        this.objOff();
+        Event.Broadcast('update-selection');
+      }
+    });
+  }
+
+  get object() {
+    return this.obj;
+  }
+
+  get scene() {
+    return this.scn;
+  }
+
+  deSelect() {
+    this.objOff();
+    this.scnOff();
+    Event.Broadcast('update-selection');
+  }
+
+  deSelectObject() {
+    this.objOff();
+    Event.Broadcast('update-selection');
+  }
+
+  selectObject(obj) {
+    this.objOn(obj);
+    if (obj.bindScene != null) this.scnOn(obj.bindScene);
+    Event.Broadcast('update-selection');
+  }
+
+  selectScene(scn) {
+    this.scnOn(scn);
+    this.objOff();
+    Event.Broadcast('update-selection');
+  }
+}
+
+const selection = new Selection();
+
 class View {
   constructor(_tag = 'Untagged', _height = -1, _width = -1, _bindElementID = null) {
     this.tag = _tag;
@@ -45,82 +124,7 @@ class View {
   }
 
   static get Selection() {
-    return class Selection {
-      constructor() {
-        this.obj = null;
-        this.scn = null;
-        this.objOff = () => {
-          if (this.obj != null) {
-            this.obj.SelectOff();
-            this.obj = null;
-          }
-        };
-        this.scnOff = () => {
-          if (this.scn != null) {
-            this.scn.SelectOff();
-            this.scn = null;
-          }
-        };
-        this.objOn = (obj) => {
-          this.objOff();
-          if (obj != null) {
-            this.obj = obj;
-            obj.SelectOn();
-          }
-        };
-        this.scnOn = (scn) => {
-          this.scnOff();
-          if (scn != null) {
-            this.scn = scn;
-            scn.SelectOn();
-          }
-        };
-        Event.AddListener('delete-scene', (_id) => {
-          if (this.scn && this.scn.id === _id) {
-            this.objOff();
-            this.scnOff();
-            Event.Broadcast('update-selection');
-          }
-        });
-        Event.AddListener('delete-object', (_id) => {
-          if (this.obj && this.obj.id === _id) {
-            this.objOff();
-            Event.Broadcast('update-selection');
-          }
-        });
-      }
-
-      get object() {
-        return this.obj;
-      }
-
-      get scene() {
-        return this.scn;
-      }
-
-      deSelect() {
-        this.objOff();
-        this.scnOff();
-        Event.Broadcast('update-selection');
-      }
-
-      deSelectObject() {
-        this.objOff();
-        Event.Broadcast('update-selection');
-      }
-
-      selectObject(obj) {
-        this.objOn(obj);
-        if (obj.bindScene != null) this.scnOn(obj.bindScene);
-        Event.Broadcast('update-selection');
-      }
-
-      selectScene(scn) {
-        this.scnOn(scn);
-        this.objOff();
-        Event.Broadcast('update-selection');
-      }
-    };
+    return selection;
   }
 }
 

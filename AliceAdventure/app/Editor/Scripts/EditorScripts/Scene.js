@@ -46,12 +46,12 @@ class Scene {
   }
 
   SetAsStartScene() {
-    if (!GameProperties.ProjectLoaded()) return;
+    if (!GameProperties.ProjectedLoaded) return;
     GameProperties.instance.settings.startScene = this.id;
   }
 
   DeleteThis() {
-    if (!GameProperties.ProjectLoaded()) return false;
+    if (GameProperties.instance === null) return false;
     if (GameProperties.GetSceneLength() <= 1) {
       Debug.LogError('You have to keep at least one scene!');
       return false;
@@ -79,7 +79,7 @@ class Scene {
 
   GetFirstObject() { // TODO: Replace this with BG sprite
     if (!GameProperties.ProjectLoaded) return null;
-    return GameProperties.instance.objectList.findIndex(elem => elem.bindScene.id === this.id);
+    return GameProperties.instance.objectList.find(elem => elem.bindScene.id === this.id);
   }
 
   SelectOn() {

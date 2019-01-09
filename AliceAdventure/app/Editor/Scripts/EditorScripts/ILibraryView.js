@@ -59,7 +59,7 @@ class ILibraryView extends View {
   }
 
   ReloadView() {
-    if (GameProperties.ProjectLoaded()) {
+    if (GameProperties.ProjectedLoaded) {
       this.vModel.viewEnabled = true;
       this.vModel.states = GameProperties.instance.stateList;
     } else {
