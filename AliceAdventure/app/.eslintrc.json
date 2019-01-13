@@ -1,7 +1,11 @@
 {
-    "extends": "airbnb-base",
-    "rules": {
-      "no-unused-vars":"warn",
-      "linebreak-style":"off"
-    }
+  "extends": [
+    "airbnb",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "no-unused-vars": "warn",
+    "linebreak-style": "off",
+    "prettier/prettier": ["error", { "singleQuote": true }]
+  }
 }
